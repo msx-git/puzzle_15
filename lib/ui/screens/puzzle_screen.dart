@@ -21,16 +21,25 @@ class PuzzleScreen extends StatelessWidget {
           }
 
           final puzzle = state.puzzle;
-          return GridView.builder(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-            ),
-            itemCount: 16,
-            itemBuilder: (context, index) {
-              final tile = puzzle.tiles![index] + 1;
-              return TileItem(tile: tile, index: index);
-            },
+          return Column(
+            children: [
+              Text("Moves: ${state.moves}"),
+
+              Expanded(
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                  ),
+                  itemCount: 16,
+                  itemBuilder: (context, index) {
+                    final tile = puzzle.tiles![index] + 1;
+                    return TileItem(tile: tile, index: index);
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),

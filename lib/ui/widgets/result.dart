@@ -18,6 +18,8 @@ class Result extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
+          Text("Moves: ${context.read<PuzzleBloc>().state.moves}"),
+          const SizedBox(height: 20),
           TextButton(
             onPressed: () {
               context.read<PuzzleBloc>().add(RestartEvent());

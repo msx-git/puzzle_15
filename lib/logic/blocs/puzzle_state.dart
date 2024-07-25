@@ -2,18 +2,18 @@ part of 'puzzle_bloc.dart';
 
 sealed class PuzzleState {
   final Puzzle puzzle;
-
-  const PuzzleState(this.puzzle);
+  int moves;
+   PuzzleState(this.puzzle, this.moves);
 }
 
 class PuzzleInitial extends PuzzleState {
-  const PuzzleInitial(super.puzzle);
+   PuzzleInitial(super.puzzle, super.moves);
 }
 
 class PuzzleUpdated extends PuzzleState {
-  const PuzzleUpdated(super.puzzle);
+   PuzzleUpdated(super.puzzle, super.moves);
 }
 
 class PuzzleSolved extends PuzzleState {
-  const PuzzleSolved(super.puzzle);
+   PuzzleSolved(super.puzzle, super.moves);
 }
